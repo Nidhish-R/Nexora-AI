@@ -1,0 +1,1567 @@
+/* =====================================================
+  Nexora AI V23
+   ===================================================== */
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    background: #070711;
+
+    color: white;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   APP
+   ===================================================== */
+
+.app {
+
+    width: 1200px;
+
+    max-width: 94%;
+
+    height: 90vh;
+
+    margin: 5vh auto;
+
+    display: flex;
+
+    background: #10101d;
+
+    border: 1px solid #292952;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 0 50px rgba(70, 60, 255, 0.15);
+}
+
+
+/* =====================================================
+   SIDEBAR
+   ===================================================== */
+
+.sidebar {
+
+    width: 220px;
+
+    flex: 0 0 220px;
+
+    padding: 22px 15px;
+
+    background: #0d0d19;
+
+    border-right: 1px solid #292952;
+
+    display: flex;
+
+    flex-direction: column;
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   LOGO
+   ===================================================== */
+
+.logo {
+
+    font-size: 25px;
+
+    font-weight: bold;
+
+    padding: 8px 10px 20px;
+
+    color: #8c84ff;
+
+    letter-spacing: 1px;
+}
+
+
+/* =====================================================
+   USER CARD
+   ===================================================== */
+
+.user-card {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 12px;
+
+    margin-bottom: 14px;
+
+    background: #151527;
+
+    border-radius: 12px;
+
+    border: 1px solid #292952;
+}
+
+
+.user-avatar {
+
+    width: 38px;
+
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #252548;
+
+    border-radius: 10px;
+
+    font-size: 18px;
+}
+
+
+.user-label {
+
+    font-size: 10px;
+
+    color: #77778f;
+
+    margin-bottom: 3px;
+}
+
+
+.username {
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    max-width: 125px;
+}
+
+
+/* =====================================================
+   SIDEBAR BUTTONS
+   ===================================================== */
+
+.sidebar-btn {
+
+    width: 100%;
+
+    padding: 12px;
+
+    margin-bottom: 8px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #19192c;
+
+    color: white;
+
+    text-align: left;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.sidebar-btn:hover {
+
+    background: #272746;
+
+    transform: translateX(2px);
+}
+
+
+.sidebar-btn:active {
+
+    transform: translateX(0);
+}
+
+
+/* =====================================================
+   VOICE ACTIVE
+   ===================================================== */
+
+.sidebar-btn.voice-active {
+
+    background: #4c3f9e;
+
+    box-shadow:
+        0 0 15px rgba(120, 100, 255, 0.35);
+}
+
+
+/* =====================================================
+   RECENT
+   ===================================================== */
+
+.recent-title {
+
+    margin-top: 16px;
+
+    margin-bottom: 8px;
+
+    padding-left: 5px;
+
+    color: #77778f;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+}
+
+
+.recent-chats {
+
+    flex: 1;
+
+    overflow-y: auto;
+
+    min-height: 0;
+}
+
+
+.no-chats {
+
+    color: #77778f;
+
+    font-size: 12px;
+
+    padding: 10px 5px;
+}
+
+
+/* =====================================================
+   CHAT ROW
+   ===================================================== */
+
+.chat-row {
+
+    display: flex;
+
+    gap: 5px;
+
+    margin-bottom: 6px;
+}
+
+
+.chat-name {
+
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 10px;
+
+    background: #151527;
+
+    border-radius: 9px;
+
+    color: #d5d5e5;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+}
+
+
+.chat-name:hover {
+
+    background: #272746;
+}
+
+
+.chat-name span {
+
+    margin-left: 4px;
+}
+
+
+.delete-btn {
+
+    width: 36px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #19192c;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+
+.delete-btn:hover {
+
+    background: #35202b;
+}
+
+
+/* =====================================================
+   SIDEBAR BOTTOM
+   ===================================================== */
+
+.sidebar-bottom {
+
+    margin-top: auto;
+
+    padding-top: 10px;
+}
+
+
+.logout-button {
+
+    display: block;
+
+    width: 100%;
+
+    padding: 12px;
+
+    background: #19192c;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 10px;
+
+    font-size: 13px;
+
+    transition: 0.2s;
+}
+
+
+.logout-button:hover {
+
+    background: #35202b;
+}
+
+
+/* =====================================================
+   MAIN
+   ===================================================== */
+
+.main {
+
+    flex: 1;
+
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+/* =====================================================
+   HEADER
+   ===================================================== */
+
+.header {
+
+    height: 80px;
+
+    flex-shrink: 0;
+
+    padding: 18px 25px;
+
+    background: #151527;
+
+    border-bottom: 1px solid #292952;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+
+.header-left {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.zyro-icon {
+
+    width: 45px;
+
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #252548;
+
+    border-radius: 12px;
+
+    font-size: 24px;
+}
+
+
+.header h1 {
+
+    font-size: 24px;
+}
+
+
+.online {
+
+    margin-top: 3px;
+
+    color: #77778f;
+
+    font-size: 11px;
+}
+
+
+.online span {
+
+    display: inline-block;
+
+    width: 8px;
+
+    height: 8px;
+
+    margin-right: 5px;
+
+    background: #00d26a;
+
+    border-radius: 50%;
+}
+
+
+.version {
+
+    background: #252548;
+
+    padding: 10px 14px;
+
+    border-radius: 9px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   CHAT BOX
+   ===================================================== */
+
+.chat-box {
+
+    flex: 1;
+
+    min-height: 0;
+
+    padding: 28px;
+
+    overflow-y: auto;
+
+    background: #10101d;
+
+    scroll-behavior: smooth;
+}
+
+
+/* =====================================================
+   MESSAGE
+   ===================================================== */
+
+.message {
+
+    max-width: 75%;
+
+    padding: 16px;
+
+    margin-bottom: 16px;
+
+    border-radius: 15px;
+
+    line-height: 1.5;
+
+    font-size: 14px;
+
+    word-wrap: break-word;
+
+    display: flex;
+
+    gap: 12px;
+}
+
+
+.zyro-message {
+
+    background: #1b1b31;
+
+    border-left: 3px solid #635bff;
+}
+
+
+.user-message {
+
+    margin-left: auto;
+
+    background: #353263;
+
+    border-right: 3px solid #8c84ff;
+}
+
+
+.message-avatar {
+
+    width: 30px;
+
+    height: 30px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #252548;
+
+    border-radius: 9px;
+}
+
+
+.message-content {
+
+    min-width: 0;
+}
+
+
+.message-name {
+
+    color: #8178ff;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    margin-bottom: 6px;
+}
+
+
+.message-text {
+
+    color: white;
+
+    white-space: normal;
+}
+
+
+.message-text img {
+
+    max-width: 100%;
+
+    border-radius: 12px;
+
+    margin-top: 10px;
+
+    display: block;
+}
+
+
+/* =====================================================
+   TYPING
+   ===================================================== */
+
+.typing-indicator {
+
+    display: none;
+
+    align-items: center;
+
+    gap: 5px;
+
+    padding: 5px 28px 10px;
+
+    color: #77778f;
+
+    font-size: 11px;
+}
+
+
+.typing-indicator span {
+
+    width: 6px;
+
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #8178ff;
+
+    animation: typing 1s infinite;
+}
+
+
+.typing-indicator span:nth-child(2) {
+
+    animation-delay: 0.15s;
+}
+
+
+.typing-indicator span:nth-child(3) {
+
+    animation-delay: 0.3s;
+}
+
+
+@keyframes typing {
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+
+/* =====================================================
+   VOICE STATUS
+   ===================================================== */
+
+.voice-status {
+
+    display: none;
+
+    padding: 7px 20px;
+
+    color: #9d97ff;
+
+    background: #121225;
+
+    border-top: 1px solid #242441;
+
+    font-size: 11px;
+}
+
+
+/* =====================================================
+   INPUT
+   ===================================================== */
+
+.input-area {
+
+    height: 82px;
+
+    flex-shrink: 0;
+
+    padding: 16px;
+
+    background: #151527;
+
+    border-top: 1px solid #292952;
+
+    display: flex;
+
+    gap: 10px;
+}
+
+
+.input-area input {
+
+    flex: 1;
+
+    min-width: 0;
+
+    border: none;
+
+    outline: none;
+
+    border-radius: 12px;
+
+    padding: 15px;
+
+    background: #070711;
+
+    color: white;
+
+    font-size: 14px;
+}
+
+
+.input-area input::placeholder {
+
+    color: #77778f;
+}
+
+
+.input-area input:focus {
+
+    box-shadow:
+        0 0 0 1px #635bff;
+}
+
+
+/* =====================================================
+   SEND
+   ===================================================== */
+
+#sendButton {
+
+    width: 105px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #635bff;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+#sendButton:hover {
+
+    background: #716aff;
+
+    transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   SETTINGS MODAL
+   ===================================================== */
+
+.settings-modal {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    background: rgba(0, 0, 0, 0.75);
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.settings-modal.show {
+
+    display: flex;
+}
+
+
+.settings-box {
+
+    width: 450px;
+
+    max-width: 90%;
+
+    max-height: 85vh;
+
+    overflow-y: auto;
+
+    background: #11111f;
+
+    border: 1px solid #4b45a8;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 0 40px rgba(90, 80, 255, 0.3);
+}
+
+
+.settings-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 20px;
+
+    border-bottom: 1px solid #292844;
+}
+
+
+.settings-header h2 {
+
+    font-size: 20px;
+}
+
+
+.close-settings {
+
+    width: 35px;
+
+    height: 35px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #24233b;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 16px;
+}
+
+
+.settings-content {
+
+    padding: 22px;
+}
+
+
+.settings-content h3 {
+
+    margin-bottom: 15px;
+}
+
+
+.settings-content label {
+
+    display: block;
+
+    margin-top: 12px;
+
+    margin-bottom: 6px;
+
+    font-size: 13px;
+}
+
+
+.settings-content input {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #36335f;
+
+    border-radius: 8px;
+
+    outline: none;
+
+    background: #090914;
+
+    color: white;
+}
+
+
+.settings-content input:focus {
+
+    border-color: #665cff;
+}
+
+
+.settings-content p {
+
+    margin-top: 15px;
+
+    color: #aaaac0;
+
+    font-size: 13px;
+}
+
+
+.settings-save {
+
+    width: 100%;
+
+    margin-top: 12px;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #5f55ff;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.settings-save:hover {
+
+    background: #7168ff;
+}
+
+
+.settings-content hr {
+
+    border: none;
+
+    border-top: 1px solid #292844;
+
+    margin: 25px 0;
+}
+
+
+.version-info {
+
+    text-align: center;
+
+    color: #8178ff;
+
+    font-weight: bold;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   LIGHT MODE
+   ===================================================== */
+
+body.light-mode {
+
+    background: #e9e9f5;
+
+    color: #171725;
+}
+
+
+body.light-mode .app {
+
+    background: #f7f7ff;
+}
+
+
+body.light-mode .sidebar {
+
+    background: #ededf8;
+
+    border-color: #d2d2e5;
+}
+
+
+body.light-mode .main {
+
+    background: #f7f7ff;
+}
+
+
+body.light-mode .header {
+
+    background: #ededf8;
+
+    border-color: #d2d2e5;
+}
+
+
+body.light-mode .chat-box {
+
+    background: #f7f7ff;
+}
+
+
+body.light-mode .input-area {
+
+    background: #ededf8;
+
+    border-color: #d2d2e5;
+}
+
+
+body.light-mode .input-area input {
+
+    background: white;
+
+    color: #171725;
+}
+
+
+body.light-mode .message-text {
+
+    color: white;
+}
+
+
+/* =====================================================
+   SCROLLBAR
+   ===================================================== */
+
+::-webkit-scrollbar {
+
+    width: 7px;
+}
+
+
+::-webkit-scrollbar-track {
+
+    background: #0b0b15;
+}
+
+
+::-webkit-scrollbar-thumb {
+
+    background: #303052;
+
+    border-radius: 10px;
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 800px) {
+
+    body {
+
+        overflow: auto;
+    }
+
+
+    .app {
+
+        width: 100%;
+
+        max-width: 100%;
+
+        height: 100vh;
+
+        margin: 0;
+
+        border-radius: 0;
+    }
+
+
+    .sidebar {
+
+        width: 180px;
+
+        flex-basis: 180px;
+    }
+
+
+    .message {
+
+        max-width: 90%;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .sidebar {
+
+        width: 155px;
+
+        flex-basis: 155px;
+
+        padding: 15px 10px;
+    }
+
+
+    .logo {
+
+        font-size: 20px;
+    }
+
+
+    .sidebar-btn {
+
+        font-size: 11px;
+
+        padding: 10px;
+    }
+
+
+    .header {
+
+        padding: 14px;
+    }
+
+
+    .header h1 {
+
+        font-size: 20px;
+    }
+
+
+    .chat-box {
+
+        padding: 18px;
+    }
+
+
+    .input-area {
+
+        padding: 10px;
+    }
+
+
+    #sendButton {
+
+        width: 75px;
+    }
+}
+
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.logo img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    border-radius: 7px;
+}
+
+
+/* ======================================================
+   NEXORA V29 CHAT HISTORY
+   ====================================================== */
+
+.chat-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 10px 12px;
+    margin: 4px 0;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.chat-row:hover {
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.chat-title {
+    flex: 1;
+
+    min-width: 0;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    font-size: 14px;
+}
+
+.delete-chat-btn {
+    flex-shrink: 0;
+
+    width: 32px;
+    height: 32px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.delete-chat-btn:hover {
+    background: rgba(255, 70, 70, 0.2);
+
+    transform: scale(1.08);
+}
+
+.delete-chat-btn:active {
+    transform: scale(0.95);
+}
+
+.active-chat {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.no-chats {
+    padding: 12px;
+
+    text-align: center;
+
+    opacity: 0.6;
+
+    font-size: 13px;
+}
+
+
+/* ============================================================
+   NEXORA V38 COMMAND CENTER
+   ============================================================ */
+
+#nexoraCommandCenter {
+
+    position: fixed;
+
+    top: 20px;
+    right: 25px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 10px 15px;
+
+    border-radius: 15px;
+
+    background: rgba(15, 15, 30, 0.92);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    backdrop-filter: blur(10px);
+
+    z-index: 9998;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.35);
+}
+
+
+/* ============================================================
+   NEXORA CORE
+   ============================================================ */
+
+.nexora-core {
+
+    position: relative;
+
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+.core-dot {
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: #66ff99;
+
+    box-shadow:
+        0 0 10px #66ff99;
+
+    z-index: 2;
+
+    animation:
+        nexoraPulse 1.8s infinite;
+}
+
+
+.core-ring {
+
+    position: absolute;
+
+    width: 24px;
+    height: 24px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(102, 255, 153, 0.5);
+
+    animation:
+        nexoraRing 2s infinite;
+}
+
+
+/* ============================================================
+   TEXT
+   ============================================================ */
+
+.command-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+    line-height: 1.1;
+}
+
+
+.command-title {
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+
+.command-activity {
+
+    margin-top: 3px;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+    opacity: 0.65;
+}
+
+
+/* ============================================================
+   ACTIVITY STATES
+   ============================================================ */
+
+.activity-online {
+
+    animation:
+        activityFade 2s infinite;
+}
+
+
+.activity-listening {
+
+    animation:
+        activityPulse 0.8s infinite;
+}
+
+
+.activity-thinking {
+
+    animation:
+        activityPulse 0.6s infinite;
+}
+
+
+.activity-speaking {
+
+    animation:
+        activityPulse 0.5s infinite;
+}
+
+
+/* ============================================================
+   STATUS STATES
+   ============================================================ */
+
+.nexora-online {
+    opacity: 1;
+}
+
+
+.nexora-listening {
+    font-weight: 600;
+}
+
+
+.nexora-thinking {
+    font-weight: 600;
+}
+
+
+.nexora-speaking {
+    font-weight: 600;
+}
+
+
+.nexora-stopped {
+    opacity: 0.6;
+}
+
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+
+@keyframes nexoraPulse {
+
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.25);
+        opacity: 0.65;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+@keyframes nexoraRing {
+
+    0% {
+        transform: scale(0.8);
+        opacity: 0.8;
+    }
+
+    70% {
+        transform: scale(1.3);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1.3);
+        opacity: 0;
+    }
+}
+
+
+@keyframes activityPulse {
+
+    0% {
+        opacity: 0.45;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.45;
+    }
+}
+
+
+@keyframes activityFade {
+
+    0% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 700px) {
+
+    #nexoraCommandCenter {
+
+        top: 10px;
+        right: 10px;
+
+        padding: 8px 10px;
+    }
+
+    .command-title {
+        font-size: 10px;
+    }
+
+    .command-activity {
+        font-size: 8px;
+    }
+}

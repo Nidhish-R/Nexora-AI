@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Nexora AI</title>
+<link rel="icon" type="image/png" href="{{ url_for('static', filename='Nexora-logo.png') }}">
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+<div class="app">
+
+
+    <!-- ================================================= -->
+    <!-- SIDEBAR -->
+    <!-- ================================================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+    <img src="{{ url_for('static', filename='Nexora-logo.png') }}" alt="Nexora">
+    <span>Nexora AI</span>
+</div>
+
+        <div class="user-card">
+
+            <div class="user-avatar">
+                👤
+            </div>
+
+            <div>
+
+                <div class="user-label">
+                    Logged in as
+                </div>
+
+                <div class="username">
+                    {{ username }}
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- NEW CHAT -->
+
+        <button
+            id="newChat"
+            class="sidebar-btn"
+            type="button"
+        >
+            ➕ New Chat
+        </button>
+
+
+        <!-- VOICE -->
+
+        <button
+            id="voiceBtn"
+            class="sidebar-btn"
+            type="button"
+        >
+            🎤 Voice Mode
+        </button>
+
+
+        <!-- CHAT -->
+
+        <button
+            id="chatBtn"
+            class="sidebar-btn"
+            type="button"
+        >
+            💬 Chat
+        </button>
+
+
+        <!-- HISTORY -->
+
+        <button
+            id="historyBtn"
+            class="sidebar-btn"
+            type="button"
+        >
+            📁 Chat History
+        </button>
+
+
+        <!-- MEMORY -->
+
+        <button
+            id="memoryBtn"
+            class="sidebar-btn"
+            type="button"
+        >
+            🧠 Memory
+        </button>
+
+
+        <!-- RECENT -->
+
+        <div class="recent-title">
+            Recent Chats
+        </div>
+
+
+        <div
+            id="recentChats"
+            class="recent-chats"
+        >
+
+            <div class="no-chats">
+                Loading chats...
+            </div>
+
+        </div>
+
+
+        <!-- BOTTOM -->
+
+        <div class="sidebar-bottom">
+
+            <button
+                id="settingsBtn"
+                class="sidebar-btn"
+                type="button"
+            >
+                ⚙️ Settings
+            </button>
+
+
+            <a
+                href="/logout"
+                class="logout-button"
+                onclick="return confirm('Logout from Nexora AI?')"
+            >
+                🚪 Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- ================================================= -->
+    <!-- MAIN -->
+    <!-- ================================================= -->
+
+    <main class="main">
+
+
+        <!-- HEADER -->
+
+        <header class="header">
+
+            <div class="header-left">
+
+                <div class=" Nexora-logo">
+                    🤖
+                </div>
+
+                <div>
+
+                    <h1>
+                        Nexora AI
+                    </h1>
+
+                    <div class="online">
+                        <span></span>
+                        Online
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="version">
+                V23
+            </div>
+
+        </header>
+
+
+
+        <!-- CHAT BOX -->
+
+        <div
+            id="chatBox"
+            class="chat-box"
+        >
+
+            <div class="message Nexora-message">
+
+                <div class="message-avatar">
+                    🤖
+                </div>
+
+                <div class="message-content">
+
+                    <div class="message-name">
+                        Nexora
+                    </div>
+
+                    <div class="message-text">
+
+                        Welcome back bro! 🤖🔥
+
+                        <br><br>
+
+                        I'm ready.
+
+                        <br><br>
+
+                        Type something or use
+                        🎤 Voice Mode!
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- TYPING -->
+
+        <div
+            id="typingIndicator"
+            class="typing-indicator"
+        >
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+            <div>
+                Nexora is thinking...
+            </div>
+
+        </div>
+
+
+
+        <!-- VOICE STATUS -->
+
+        <div
+            id="voiceStatus"
+            class="voice-status"
+        >
+            🎤 Ready
+        </div>
+
+
+
+        <!-- INPUT -->
+
+        <div class="input-area">
+
+            <input
+                id="userInput"
+                type="text"
+                placeholder="Message Nexora..."
+                autocomplete="off"
+            >
+
+
+            <button
+                id="sendButton"
+                type="button"
+            >
+                Send 🚀
+            </button>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+
+<!-- ================================================= -->
+<!-- SETTINGS MODAL -->
+<!-- ================================================= -->
+
+<div
+    id="settingsModal"
+    class="settings-modal"
+>
+
+    <div class="settings-box">
+
+
+        <div class="settings-header">
+
+            <h2>
+                ⚙️ Nexora Settings
+            </h2>
+
+            <button
+                id="closeSettings"
+                class="close-settings"
+                type="button"
+            >
+                ✕
+            </button>
+
+        </div>
+
+
+        <div class="settings-content">
+
+
+            <h3>
+                👤 Profile
+            </h3>
+
+
+            <label>
+                Username
+            </label>
+
+            <input
+                id="settingsUsername"
+                type="text"
+                placeholder="Username"
+            >
+
+
+            <label>
+                Favorite Game
+            </label>
+
+            <input
+                id="settingsFavoriteGame"
+                type="text"
+                placeholder="Favorite game"
+            >
+
+
+            <p>
+                Email:
+                <strong id="settingsEmail">
+                    -
+                </strong>
+            </p>
+
+
+            <button
+                id="saveProfileBtn"
+                class="settings-save"
+                type="button"
+            >
+                Save Profile
+            </button>
+
+
+            <hr>
+
+
+            <h3>
+                🔐 Change Password
+            </h3>
+
+
+            <label>
+                Current Password
+            </label>
+
+            <input
+                id="oldPassword"
+                type="password"
+                placeholder="Current password"
+            >
+
+
+            <label>
+                New Password
+            </label>
+
+            <input
+                id="newPassword"
+                type="password"
+                placeholder="New password"
+            >
+
+
+            <button
+                id="changePasswordBtn"
+                class="settings-save"
+                type="button"
+            >
+                Change Password
+            </button>
+
+
+            <hr>
+
+
+            <h3>
+                🎨 Appearance
+            </h3>
+
+
+            <button
+                id="themeBtn"
+                class="settings-save"
+                type="button"
+            >
+                🌙 Toggle Theme
+            </button>
+
+
+            <button
+                id="soundBtn"
+                class="settings-save"
+                type="button"
+            >
+                🔊 Toggle Voice
+            </button>
+
+
+            <hr>
+
+
+            <div class="version-info">
+
+                🤖 Nexora AI V36
+
+                <br>
+
+                JARVIS MODE
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script
+    src="{{ url_for('static', filename='script.js') }}"
+></script>
+
+</body>
+
+</html>

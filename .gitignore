@@ -1,0 +1,9 @@
+zyro.db
+.env
+__pycache__/
+*.pyc
+
+app_backup.py
+zyro_ai.py
+zyro_learning.txt
+zyro_memory.txt
