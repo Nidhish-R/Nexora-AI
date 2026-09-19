@@ -326,7 +326,7 @@ function setStatus(text) {
 
             isSpeaking = false;
 
-            setVoiceStatus("");
+            setStatus("NEXORA is online.");
         }
     }
 
