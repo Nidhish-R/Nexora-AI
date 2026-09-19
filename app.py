@@ -16,8 +16,7 @@ from flask import (
 import sqlite3
 import os
 import re
-from datetime import datetime
-
+from datetime import datetime, timedelta
 from openai import OpenAI
 
 from werkzeug.security import (
@@ -33,6 +32,8 @@ from werkzeug.security import (
 app = Flask(__name__)
 
 app.secret_key = "zyro_ai_secret_key_change_later"
+
+app.permanent_session_lifetime = timedelta(days=30)
 
 DATABASE = "zyro.db"
 
@@ -450,6 +451,7 @@ def login():
             error="Invalid username/email or password."
         )
 
+    session.permanent = True
     session["user_id"] = user["id"]
 
     return redirect(
